@@ -15,10 +15,19 @@ int main ()
 		cin >> grade;
 		if (grade <= 0 && grade >= 5)
 			grades[grade]++;
-		if (grade >= 5)
+		if (grade > 5)
 			cout << "Grade was out of limits" << endl;
-	
 	} while (grade >= 0);
+
+	cout << "	Grade Graphical Table" << endl;
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << i << " " << grades[i];
+		for (int u = 0; u < grades[i]; u++)
+			cout << "*";
+		cout << endl;
+
+	}
 
 
 	system("pause");
