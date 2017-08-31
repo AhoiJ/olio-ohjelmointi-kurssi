@@ -31,8 +31,16 @@ int main ()
 		cout << endl;
 	}
 	
+	for (int i = 0; i < SIZE; i++)
+		students += grades[i];
 
+	for (int i = 0; i < SIZE; i++)
+		average += grades[i] * i;
 
+	average = average / students;
+
+	cout << "Amount of students: " << students << endl;
+	cout << "Grade Average: " << average << endl;
 
 	system("pause");
 	return 0;
