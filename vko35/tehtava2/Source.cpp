@@ -9,11 +9,14 @@ int main ()
 	const int SIZE = 6;
 	int grades[SIZE] = { 0 };
 	int grade = 0;
+	int students = 0;
+	double average = 0;
+
 	cout << "Please enter grades ranging from 0 to 5, to end program enter -1." << endl;
 	do 	{
 		cout << "Enter grade: ";
 		cin >> grade;
-		if (grade <= 0 && grade >= 5)
+		if (grade >= 0 && grade <= 5)
 			grades[grade]++;
 		if (grade > 5)
 			cout << "Grade was out of limits" << endl;
@@ -22,12 +25,13 @@ int main ()
 	cout << "	Grade Graphical Table" << endl;
 	for (int i = 0; i < SIZE; i++)
 	{
-		cout << i << " " << grades[i];
+		cout << i << " " << grades[i] << " ";
 		for (int u = 0; u < grades[i]; u++)
 			cout << "*";
 		cout << endl;
-
 	}
+	
+
 
 
 	system("pause");
