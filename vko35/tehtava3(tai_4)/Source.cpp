@@ -10,8 +10,22 @@ int main()
 {
 	const int AMOUNT = 7;
 	int lotto[AMOUNT] = { {0} };
-	
+	int ownNumbers[AMOUNT] = { {0} };
+	int winnings = 0;
 	srand(time(NULL));
+
+
+
+	cout << "Enter seven lottery numbers ranging from 1 to 42: ";
+	for (int i = 0; i < AMOUNT; i++)
+		cin >> ownNumbers[i];
+	
+	cout << "Here are your numbers: ";
+
+	for (int i = 0; i < AMOUNT; i++)
+		cout << ownNumbers[i] << " ";
+
+	cout << endl << "And here are the Random numbers: ";
 
 	for (int i = 0; i < AMOUNT; i++)
 	{
@@ -20,9 +34,16 @@ int main()
 		if (i < 6)
 			cout << ", ";
 	}
-
 	cout << endl;
+	
+	for (int i = 0; i < AMOUNT; i++)
+	{
+		for (int u = 0; u < AMOUNT; u++)
+			if (ownNumbers[i] == lotto[u])
+				winnings++;
+	}
 
+	cout << "You got " << winnings << " numbers right" << endl;
 
 	system("pause"); 
 	return 0;
