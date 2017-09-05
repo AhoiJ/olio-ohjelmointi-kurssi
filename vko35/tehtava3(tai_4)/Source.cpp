@@ -3,7 +3,6 @@
 #include <iostream>
 #include <time.h>
 
-
 using std::cout; using std::cin; using std::endl; using std::srand; using std::rand;
 
 int main()
