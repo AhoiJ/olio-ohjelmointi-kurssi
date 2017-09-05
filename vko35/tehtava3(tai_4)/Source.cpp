@@ -15,33 +15,36 @@ int main()
 	int test = 0;
 	srand(time(NULL));
 
-	cout << "Enter seven lottery numbers ranging from 1 to 42: ";
-
+	cout << "Enter seven lottery numbers ranging from 1 to 40: ";
+	// 1. Käyttäjä syöttää numeronsa ja se tarkistetaan.
 		for (int i = 0; i < AMOUNT; i++)
 			do
 			{
 				test = 0;
 				cin >> ownNumbers[i];
-				if (ownNumbers[i] < 1 || ownNumbers[i] > 42)
+				if (ownNumbers[i] < 1 || ownNumbers[i] > 40)
 				{
 					cout << "Number was not within limits" << endl;
 					test++;
 				}
 
 			} while (test != 0);
-		cout << "Here are your numbers: ";
-
+	//1. Päättyy.
+		
+	//2. Tulostetaan käyttäjän numero.
+	cout << "Here are your numbers: ";
 	for (int i = 0; i < AMOUNT; i++)
 		cout << ownNumbers[i] << " ";
-
+	//2. Päättyy.
 	cout << endl << "And here are the Random numbers: ";
 
+	//3. Numeroiden arpominen, tarkistus ettei ole samoja ja tulostus.	
 	for (int i = 0; i < AMOUNT; i++)
 	{
 		do
 		{
 			check = 0;
-			lotto[i] = rand() % 42 + 1;
+			lotto[i] = rand() % 40 + 1;
 				for (int u = 0; u < AMOUNT; u++)
 					if (i != u)
 					{
@@ -54,15 +57,20 @@ int main()
 			cout << ", ";
 	}
 	cout << endl;
-	
+	// 3. Päättyy.
+
+	// 4. Omien numeroiden vertailu arvottuihin numeroihin.
 	for (int i = 0; i < AMOUNT; i++)
 	{
 		for (int u = 0; u < AMOUNT; u++)
 			if (ownNumbers[i] == lotto[u])
 				winnings++;
 	}
+	// 4. Päättyy.
 
+	// 5. Tulostetaan voittojen lukumäärä.
 	cout << "You got " << winnings << " numbers right" << endl;
+	// 5. Päättyy.
 
 	system("pause"); 
 	return 0;
