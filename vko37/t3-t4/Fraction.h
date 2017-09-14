@@ -16,6 +16,8 @@ public:
 
 	void print();
 	void askInfo();
+	void keke();
+	
 
 private:
 
