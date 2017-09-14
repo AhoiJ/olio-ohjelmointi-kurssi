@@ -12,7 +12,7 @@ int main()
 	{
 		wallClock.print();
 		wallClock.addSecond();
-		Sleep(998);
+	//	Sleep(998);
 	}
 	system("pause");
 	return 0;
