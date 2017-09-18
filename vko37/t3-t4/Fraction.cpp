@@ -45,10 +45,37 @@ void Fraction::askInfo()
 {
 	cout << "Anna osoittaja: ";
 	cin >> os_;
-	cout << "Anna nimittaja";
+	cout << "Anna nimittaja: ";
 	cin >> nim_;
 }
 
-void Fraction::keke()
+void Fraction::evaluate()
 {
+	int divisor = 111;
+	int place = os_;
+	int place2 = nim_;
+
+	cout << endl;
+	
+	if (place > place2)
+	{
+			for (int i = 0; i < 999999; i++)
+			{
+				if (place > place2)
+					place = place - place2;
+				if (place < place2)
+				{
+					divisor = place;
+					place2 = place2 - place;
+					if (place2 <= 0)
+					{
+						i = 999999;
+						
+					}
+				}
+
+			}
+
+		cout << "greatest common divisor: " << divisor << endl;
+	}
 }
