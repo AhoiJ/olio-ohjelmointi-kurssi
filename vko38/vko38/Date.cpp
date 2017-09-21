@@ -56,6 +56,22 @@ void Date::print()
 
 void Date::addDay()
 {
+	int dayAmount = howManyDaysInMonth();
+	if (day_ < dayAmount)
+		day_++;
+	else
+	{
+		day_ = 1; //month changes
+		month_++;
+		if (month_ > 12)
+		{
+			month_ = 1; // year changes
+			year_++;
+		}
+
+
+	}
+
 }
 
 int Date::howManyDaysInMonth()
