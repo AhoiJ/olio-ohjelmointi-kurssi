@@ -19,12 +19,12 @@
 
 		void print();
 
+		void addDay();
+		int howManyDaysInMonth();
+
 	private:
 		int day_;
 		int month_;
 		int year_;
 	};
-
-
-};
 
