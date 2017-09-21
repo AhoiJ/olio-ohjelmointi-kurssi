@@ -68,8 +68,6 @@ void Date::addDay()
 			month_ = 1; // year changes
 			year_++;
 		}
-
-
 	}
 
 }
