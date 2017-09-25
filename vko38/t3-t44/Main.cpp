@@ -7,9 +7,11 @@ using std::cout; using std::endl; using std::cin;
 int main()
 {
 	int choice = 0;
-	cout << "	If you want to test student object press 1, for Teacher press 2: " << endl;
-	cin >> choice;
-
+	do
+	{
+		cout << "	If you want to test student object press 1, for Teacher press 2: " << endl;
+		cin >> choice;
+	} while (choice != 1 && choice != 2);
 	if (choice == 1)
 	{
 		Oppilas ossi;
@@ -27,7 +29,7 @@ int main()
 	if (choice == 2)
 	{
 		Opettaja ope;
-		
+
 		ope.asetaTunnus("Tunnus123");
 		ope.asetaEnim("Popettaja");
 		ope.asetaSnim("Opettaja");
@@ -35,6 +37,7 @@ int main()
 
 		ope.tulosta();
 	}
+
 	system("pause");
 
 
