@@ -1,6 +1,7 @@
+#include <iostream>
 #include "Opettaja.h"
 
-
+using std::endl; using std::cout;
 
 Opettaja::Opettaja(): palkka_(0.0) // string - luokka alustaa muut
 {
@@ -58,5 +59,5 @@ void Opettaja::asetaPalkka(float palkka)
 
 void Opettaja::tulosta()
 {
-	cout << tunnus_ << " " << enim_ << " " << " " << snim_ << " " << palkka_ << endl;
+	cout << tunnus_ << " " << enim_ << " " << " " << snim_ << " " << palkka_ << " euroa/tunti." << endl;
 }
