@@ -19,11 +19,8 @@ int main()
 		
 	 }
 
+		cout << endl << "Days: " << Tomorrow.howManyDaysInMonth() << endl;
 
-	if (Tomorrow.howManyDaysInMonth() == 29)
-		cout << endl << "Days: " << Tomorrow.howManyDaysInMonth() << endl;
-	else
-		cout << endl << "Days: " << Tomorrow.howManyDaysInMonth() << endl;
 	system("pause");
 	return 0;
 }
