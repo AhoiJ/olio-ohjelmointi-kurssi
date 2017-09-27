@@ -6,17 +6,32 @@ using std::cout; using std::endl;
 
 int main()
 {
-	Clock wallClock;
-	Clock rolex(13, 20, 43);
-	
-	Clock works(rolex);
+	Clock* C1_ptr = new Clock;
 
-	wallClock.print();
+	Clock* C2_ptr = new Clock(10, 12, 30);
 
-	rolex.addSecond();
-	rolex.print();
+	Clock* C3_ptr = new Clock(*C2_ptr);
 
-	works.print();
+	if (C1_ptr)
+	{
+		C1_ptr->print();
+		delete C1_ptr;
+		C1_ptr = 0;
+	}
+
+	if (C2_ptr)
+	{
+		C2_ptr->print();
+		delete C2_ptr;
+		C2_ptr = 0;
+	}
+
+	if (C3_ptr)
+	{
+		C3_ptr->print();
+		delete C3_ptr;
+		C3_ptr = 0;
+	}
 
 	system("pause");
 	return 0;
