@@ -23,7 +23,7 @@ public:
 	void addSecond();
 
 private:
-	hh_;
+	int hh_;
 	int mm_;
 	int ss_;
 };

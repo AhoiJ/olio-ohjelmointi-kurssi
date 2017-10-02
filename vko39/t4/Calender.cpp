@@ -1,6 +1,9 @@
 #include "Calender.h"
+#include "Date.h"
+#include "Clock.h"
+#include <iostream>
 
-
+using std::cout; using std::endl;
 
 Calender::Calender(): day_(), time_(), thing_(""), reminder_(false)
 {
@@ -49,7 +52,7 @@ void Calender::setDay(Date day)
 
 void Calender::setClock(Clock time)
 {
-	time_.setTime(time.setHH(), time.setMM(), time.setSS());
+	time_.setTime(time.getHH(), time.getMM(), time.getSS());
 }
 
 void Calender::setThing(string thing)
@@ -59,10 +62,12 @@ void Calender::setThing(string thing)
 
 void Calender::setReminder(bool reminder)
 {
+	reminder_ = reminder;
 }
 
 void Calender::printEntry() const
 {
+	cout << " You have a reminder for " << &day_.setDate << "." << &day_.setMonth << &day_.setYear << "juu kesken";
 }
 
 void Calender::askInfo()
