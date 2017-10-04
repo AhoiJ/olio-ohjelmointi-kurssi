@@ -2,9 +2,7 @@
 #include <iostream>
 #include "Clock.h"
 
-using std::cout; using std::endl;
-
-
+using std::cout; using std::endl; using std::cin;
 
 
 Clock::Clock() : hh_(0), mm_(0), ss_(0)
@@ -17,13 +15,13 @@ Clock::Clock(int hh, int mm, int ss) : hh_(hh), mm_(mm), ss_(ss)
 
 Clock::Clock(const Clock & original) : hh_(original.hh_), mm_(original.mm_), ss_(original.ss_)
 {
-	cout << " Copybuilder" << endl;
+//	cout << " Copybuilder" << endl;
 }
 
 
 Clock::~Clock()
 {
-	cout << "Clock demolisher" << endl;
+//	cout << "Clock demolisher" << endl;
 }
 
 int Clock::getHH() const
@@ -59,6 +57,20 @@ void Clock::setSS(int ss)
 void Clock::print() const
 {
 	cout << hh_ << " h " << mm_ << " min " << ss_ << " sec " << endl;
+}
+
+void Clock::getInfo()
+{
+	cout << endl << "	Enter hours: ";
+	cin >> hh_;
+	cin.ignore();
+	cout << endl << "	Enter minutes: ";
+	cin >> mm_;
+	cin.ignore();
+	cout << endl << "	Enter seconds: ";
+	cin >> ss_;
+	cin.ignore();
+
 }
 
 void Clock::setTime(int hh, int mm, int ss)

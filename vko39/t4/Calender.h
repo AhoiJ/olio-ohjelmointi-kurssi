@@ -28,7 +28,7 @@ public:
 
 private:
 
-	Date day_;
+	Date date_;
 	Clock time_;
 	string thing_;
 	bool reminder_;

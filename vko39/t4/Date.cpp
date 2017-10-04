@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Date.h"
 
-using std::endl; using std::cout;
+using std::endl; using std::cout; using std::cin;
 
 Date::Date() : day_(1), month_(1), year_(1970)
 {
@@ -15,7 +15,7 @@ Date::Date(int day, int month, int year) : day_(day), month_(month), year_(year)
 
 Date::Date(const Date & original): day_(original.day_), month_(original.month_), year_(original.year_)
 {
-	cout << "Copybuilder" << endl;
+//	cout << "Copybuilder" << endl;
 }
 
 Date::~Date()
@@ -57,6 +57,20 @@ void Date::setYear(int year)
 void Date::print() const
 {
 	cout << day_ << "." << month_ << "." << year_ << endl;
+}
+
+void Date::askInfo()
+{
+	cout << endl << "	Enter day: ";
+	cin >> day_;
+	cin.ignore();
+	cout << endl << "	Enter month: ";
+	cin >> month_;
+	cin.ignore();
+	cout << endl << "	Enter year: ";
+	cin >> year_; 
+	cin.ignore();
+
 }
 
 void Date::addDay()

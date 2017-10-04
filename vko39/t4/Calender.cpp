@@ -1,21 +1,21 @@
 #include "Calender.h"
-#include "Date.h"
-#include "Clock.h"
+// #include "Date.h"
+// #include "Clock.h"
 #include <iostream>
 
-using std::cout; using std::endl;
+using std::cout; using std::endl; using std::cin;
 
-Calender::Calender(): day_(), time_(), thing_(""), reminder_(false)
+Calender::Calender(): date_(), time_(), thing_(""), reminder_(false)
 {
 }
 
 Calender::Calender(Date day, Clock time, string thing, bool reminder):
-	day_(day), time_(time), thing_(thing), reminder_(reminder)
+	date_(day), time_(time), thing_(thing), reminder_(reminder)
 {
 }
 
 Calender::Calender(const Calender & original):
-	day_(original.day_), time_(original.time_), thing_(original.thing_), reminder_(original.reminder_)
+	date_(original.date_), time_(original.time_), thing_(original.thing_), reminder_(original.reminder_)
 {
 }
 
@@ -25,7 +25,7 @@ Calender::~Calender()
 
 Date Calender::getDay() const
 {
-	return day_;
+	return date_;
 }
 
 Clock Calender::getTime() const
@@ -45,9 +45,9 @@ bool Calender::getReminder() const
 
 void Calender::setDay(Date day)
 {
-	day_.setDate(day.getDate());
-	day_.setMonth(day.getMonth());
-	day_.setYear(day.getYear());
+	date_.setDate(day.getDate());
+	date_.setMonth(day.getMonth());
+	date_.setYear(day.getYear());
 }
 
 void Calender::setClock(Clock time)
@@ -67,9 +67,34 @@ void Calender::setReminder(bool reminder)
 
 void Calender::printEntry() const
 {
-	cout << " You have a reminder for " << &day_.setDate << "." << &day_.setMonth << &day_.setYear << "juu kesken";
+	cout << "-------------------------" << endl;
+	date_.print();
+	time_.print();
+	cout << thing_ << endl;
+	if (reminder_)
+		cout << "Reminder on " << endl;
+	else
+		cout << "No reminder" << endl;
+	cout << "-------------------------" << endl;
 }
 
 void Calender::askInfo()
 {
+	string minder; //apumuutuja
+	date_.askInfo();
+	time_.getInfo();
+	cin.clear();
+	
+	cout << endl << "	Enter thing you want to be reminded of:  ";
+	getline(cin, thing_);
+	
+	cout << "	Reminder y / n : ";
+	getline(cin, minder);
+	
+	if (minder == "y" || minder == "Y")
+		reminder_ = true;
+	else
+		reminder_ = false;
+
+
 }

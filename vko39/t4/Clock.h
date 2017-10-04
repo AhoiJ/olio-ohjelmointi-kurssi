@@ -18,6 +18,7 @@ public:
 	void setMM(int mm);
 	void setSS(int ss);
 
+	void getInfo();
 	void setTime(int hh, int mm, int ss);
 	void print() const;
 	void addSecond();

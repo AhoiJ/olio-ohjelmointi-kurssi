@@ -19,6 +19,7 @@ public:
 	void setYear(int year);
 
 	void print() const;
+	void askInfo();
 
 	void addDay();
 	int howManyDaysInMonth() const;
