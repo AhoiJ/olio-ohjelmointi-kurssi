@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Koulu.h"
-
+#include "Sovellus.h"
 
 int main()
 {
+	/*
 	Koulu tamk("TAMK");
 
 	tamk.lisaaKoulutusohjelma();
@@ -12,7 +13,13 @@ int main()
 
 	tamk.tulostaKoulutusohjelmanOpettajat();
 	tamk.tulostaKoulutusohjelmanOppilaat();
+	*/
 
+	Sovellus ajaminen;
+
+	ajaminen.aja();
+
+	cout << endl;
 	system("pause");
 	return 0;
 }
