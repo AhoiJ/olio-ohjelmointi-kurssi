@@ -32,6 +32,7 @@ void Opiskelija::asetaOpiskelijanumero(string opiskelijanumero)
 	opiskelijanumero_ = opiskelijanumero;
 }
 
+
 Opiskelija & Opiskelija::operator=(const Opiskelija & alkup)
 {
 	if (this != &alkup)

@@ -1,7 +1,8 @@
 #include "Sovellus.h"
 #include <windows.h>
+#include <fstream>
 
-using std::cout; using std::cin; using std::getline; using std::endl;
+using std::cout; using std::cin; using std::getline; using std::endl; using std::ofstream;
 
 Sovellus::Sovellus()
 {
@@ -18,6 +19,10 @@ void Sovellus::aja() const
 	Koulu testi("TAMK"); // pakko luoda parametrirakentaja, defaultrakentaja ei toimi koska siinä ei ole asetettu parametrejä.
 
 	string valinta;
+
+	ofstream file;
+
+	file.open("Oppilastiedot");
 
 	do
 	{
