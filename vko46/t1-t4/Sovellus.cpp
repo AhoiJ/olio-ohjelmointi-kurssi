@@ -22,7 +22,7 @@ void Sovellus::aja() const
 
 	ofstream file;
 
-	file.open("Oppilastiedot");
+	file.open("Oppilastiedot.csv");
 
 	do
 	{

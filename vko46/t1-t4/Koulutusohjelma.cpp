@@ -29,6 +29,9 @@ void Koulutusohjelma::lisaaOpiskelija()
 	Opiskelija tmp;
 	tmp.kysyTiedot();
 	opiskelijat_.push_back(tmp);
+
+	tmp.asetaTiedotFileen();
+
 }
 
 void Koulutusohjelma::tulostaOpettajat() const

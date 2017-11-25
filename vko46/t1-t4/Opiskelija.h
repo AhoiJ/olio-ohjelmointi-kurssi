@@ -17,6 +17,8 @@ public:
 
 	Opiskelija& operator =(const Opiskelija& alkup);
 
+	void asetaTiedotFileen() const;
+
 	void kysyTiedot();
 	void tulosta() const;
 
