@@ -14,15 +14,18 @@ Sovellus::~Sovellus()
 {
 }
 
+
 void Sovellus::aja() const
 {
 	Koulu testi("TAMK"); // pakko luoda parametrirakentaja, defaultrakentaja ei toimi koska siinä ei ole asetettu parametrejä.
+
+	Koulutusohjelma ahoi;
 
 	string valinta;
 
 	ofstream file;
 
-	file.open("Oppilastiedot.csv");
+	file.open("Tiedot.csv");
 
 	do
 	{
@@ -59,6 +62,9 @@ void Sovellus::aja() const
 			testi.tulostaKoulutusohjelmanOppilaat();
 			Sleep(2500);
 		}
+		else if (valinta == "14")
+			testi.lueTiedotFilesta();
+
 		else if (valinta == "0")
 			cout << endl;
 
@@ -89,7 +95,7 @@ string Sovellus::tulostaValikko() const
 //	cout << endl << "11) Päivitä koulutusohjelman nimi";
 //	cout << endl << "12) Päivitä opettajan tiedot";
 //	cout << endl << "13) Päivitä opiskelijan tiedot";
-//	cout << endl << "14) Lue tiedot";
+	cout << endl << "14) Lue tiedot";
 //	cout << endl << "15) Tallenna tiedot";
 	cout << endl << "0) Lopeta";
 

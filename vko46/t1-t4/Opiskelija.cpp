@@ -49,7 +49,7 @@ void Opiskelija::asetaTiedotFileen() const
 {
 	ofstream file;
 
-	file.open("Oppilastiedot.csv");
+	file.open("Tiedot.csv");
 	file << Opiskelija::annaEtunimi();
 	file << ";";
 	file << Opiskelija::annaSukunimi();
@@ -59,7 +59,8 @@ void Opiskelija::asetaTiedotFileen() const
 	file << Opiskelija::annaPuhelinnumero();
 	file << ";";
 	file << Opiskelija::annaOpiskelijanumero();
-	file << ";";
+	file << ";" << "/n";
+
 	file.close();
 }
 

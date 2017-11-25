@@ -25,6 +25,8 @@ public:
 
 	int etsiKoulutusohjelma() const;
 
+	void lueTiedotFilesta() const;
+
 private:
 
 	string nimi_;

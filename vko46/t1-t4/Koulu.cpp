@@ -1,7 +1,8 @@
 #include "Koulu.h"
 #include <iostream>
+#include <fstream>
 
-using std::cout; using std::cin; using std::getline; using std::endl;
+using std::cout; using std::cin; using std::getline; using std::endl; using std::ofstream; using std::ifstream;
 
 Koulu::Koulu() : nimi_(), koulutusohjelmat_()
 {
@@ -113,4 +114,21 @@ int Koulu::etsiKoulutusohjelma() const
 		}
 	}
 	return -1; // ei löytynyt, palautetaan -1
+}
+
+void Koulu::lueTiedotFilesta() const
+{
+
+	ifstream file("Tiedot.cvs");
+	int i = 0;
+	string asia[50];
+
+
+	while (file.good())
+	{
+		getline(file, asia[i], ';');			// tämä toimimaan!!!!!!!
+		cout << asia[1];
+		i++;
+	}
+
 }
