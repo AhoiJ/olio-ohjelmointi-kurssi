@@ -55,7 +55,7 @@ void Sovellus::aja() const
 			Sleep(2500);
 		}
 		else if (valinta == "6")
-			testi.lisaaKoulutusohjelmaanOpiskelija();
+			testi.lisaaKoulutusohjelmaanOpiskelija(); // Opiskelijatiedot lis‰t‰‰n cvs fileen opiskelija.cpp:ss‰, t‰ytyy tehd‰ erillinen toiminto?
 
 		else if (valinta == "7")
 		{
@@ -63,8 +63,10 @@ void Sovellus::aja() const
 			Sleep(2500);
 		}
 		else if (valinta == "14")
-			testi.lueTiedotFilesta();
-
+		{
+			testi.lueTiedotFilesta(); // t‰‰l‰ onkelmaa
+			Sleep(2500);
+		}
 		else if (valinta == "0")
 			cout << endl;
 

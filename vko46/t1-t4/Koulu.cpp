@@ -1,8 +1,9 @@
 #include "Koulu.h"
 #include <iostream>
 #include <fstream>
+#include <ios>
 
-using std::cout; using std::cin; using std::getline; using std::endl; using std::ofstream; using std::ifstream;
+using std::cout; using std::cin; using std::getline; using std::endl; using std::ofstream; using std::ifstream; using std::ios;
 
 Koulu::Koulu() : nimi_(), koulutusohjelmat_()
 {
@@ -119,16 +120,13 @@ int Koulu::etsiKoulutusohjelma() const
 void Koulu::lueTiedotFilesta() const
 {
 
-	ifstream file("Tiedot.cvs");
-	int i = 0;
-	string asia[50];
-
+	ifstream file("Oppilastiedot.cvs");
+	string value;
 
 	while (file.good())
 	{
-		getline(file, asia[i], ';');			// tämä toimimaan!!!!!!!
-		cout << asia[1];
-		i++;
+		getline(file, value, ';'); // read a string until next comma: http://www.cplusplus.com/reference/string/getline/
+		cout << string(value, 1, value.length() - 2); // display value removing the first and the last character from it
 	}
 
 }
