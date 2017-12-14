@@ -45,11 +45,14 @@ Opiskelija & Opiskelija::operator=(const Opiskelija & alkup)
 	return *this;
 }
 
+
 void Opiskelija::asetaTiedotFileen() const
 {
+	/**
 	ofstream file;
 
-	file.open("Tiedot.csv");
+	file.open("Opiskelijatiedot.csv");
+	
 	file << Opiskelija::annaEtunimi();
 	file << ";";
 	file << Opiskelija::annaSukunimi();
@@ -62,6 +65,7 @@ void Opiskelija::asetaTiedotFileen() const
 	file << ";" << "/n";
 
 	file.close();
+	*/
 }
 
 

@@ -7,7 +7,7 @@ class Opiskelija :
 public:
 	Opiskelija();
 	Opiskelija(string etunimi, string sukunimi, string osoite, string puhelinnumero, string opiskelijanumero);
-	Opiskelija(const Opiskelija & alkup);
+	Opiskelija(const Opiskelija & alkup); 
 	~Opiskelija();
 
 	//getters

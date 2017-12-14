@@ -19,7 +19,7 @@ void Sovellus::aja() const
 {
 	Koulu testi("TAMK"); // pakko luoda parametrirakentaja, defaultrakentaja ei toimi koska siin‰ ei ole asetettu parametrej‰.
 
-	Koulutusohjelma ahoi;
+//	Koulutusohjelma ahoi;
 
 	string valinta;
 
@@ -67,6 +67,10 @@ void Sovellus::aja() const
 			testi.lueTiedotFilesta(); // t‰‰l‰ onkelmaa
 			Sleep(2500);
 		}
+		else if(valinta == "15")
+		{
+
+		}
 		else if (valinta == "0")
 			cout << endl;
 
@@ -98,7 +102,7 @@ string Sovellus::tulostaValikko() const
 //	cout << endl << "12) P‰ivit‰ opettajan tiedot";
 //	cout << endl << "13) P‰ivit‰ opiskelijan tiedot";
 	cout << endl << "14) Lue tiedot";
-//	cout << endl << "15) Tallenna tiedot";
+	cout << endl << "15) Tallenna tiedot";
 	cout << endl << "0) Lopeta";
 
 	cout << endl << "Valintasi: ";

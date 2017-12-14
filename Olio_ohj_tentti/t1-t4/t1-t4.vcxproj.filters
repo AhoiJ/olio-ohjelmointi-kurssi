@@ -15,55 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Henkilo.h">
+    <ClInclude Include="Kappale.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Koulu.h">
+    <ClInclude Include="Kuutio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Koulutusohjelma.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Opettaja.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Opiskelija.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tyontekija.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sovellus.h">
+    <ClInclude Include="Sylinteri.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Henkilo.cpp">
+    <ClCompile Include="Kappale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Koulu.cpp">
+    <ClCompile Include="Kuutio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Koulutusohjelma.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Opettaja.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Opiskelija.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tyontekija.cpp">
+    <ClCompile Include="Sylinteri.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sovellus.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
 </Project>

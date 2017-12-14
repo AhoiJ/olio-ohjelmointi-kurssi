@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{64F29548-D9C2-4B26-9DCA-B6037526BA9B}</ProjectGuid>
-    <RootNamespace>T1T4</RootNamespace>
+    <ProjectGuid>{F2F3C11D-CE00-494A-9840-C028F541D287}</ProjectGuid>
+    <RootNamespace>t1t4</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -110,26 +110,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Henkilo.h" />
-    <ClInclude Include="Koulu.h" />
-    <ClInclude Include="Koulutusohjelma.h" />
-    <ClInclude Include="Opettaja.h" />
-    <ClInclude Include="Opiskelija.h" />
-    <ClInclude Include="Sovellus.h" />
-    <ClInclude Include="Tyontekija.h" />
+    <ClInclude Include="Kappale.h" />
+    <ClInclude Include="Kuutio.h" />
+    <ClInclude Include="Sylinteri.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Henkilo.cpp" />
-    <ClCompile Include="Koulu.cpp" />
-    <ClCompile Include="Koulutusohjelma.cpp" />
+    <ClCompile Include="Kappale.cpp" />
+    <ClCompile Include="Kuutio.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Opettaja.cpp" />
-    <ClCompile Include="Opiskelija.cpp" />
-    <ClCompile Include="Sovellus.cpp" />
-    <ClCompile Include="Tyontekija.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram11.cd" />
+    <ClCompile Include="Sylinteri.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

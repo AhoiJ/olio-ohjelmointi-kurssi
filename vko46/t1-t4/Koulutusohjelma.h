@@ -20,7 +20,6 @@ public:
 	void tulostaOpettajat() const;
 	void tulostaOpiskelijat() const;
 
-//	void lueTiedotFilesta() const;
 
 	string annaNimi() const;
 	void asetaNimi(string nimi);
