@@ -119,6 +119,17 @@ void Sovellus::aja() const
 
 		}
 
+		else if (valinta == "10")
+		{
+			testi.poistaOppilas();
+
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+
+		}
+
 		/*	else if (valinta == "14")
 			{
 				testi.lueTiedotFilesta(); // poistettu kaikki tallennus ja lukemis koodit
@@ -170,7 +181,7 @@ string Sovellus::tulostaValikko() const
 		cout << endl << "7) Tulosta koulutusohjelman opiskelijat";
 		cout << endl << "8) Poista koulutusohjelma";
 		cout << endl << "9) Poista opettaja";
-		//	cout << endl << "10) Poista opiskelija";
+		cout << endl << "10) Poista opiskelija";
 		//	cout << endl << "11) Päivitä koulutusohjelman nimi";
 		//	cout << endl << "12) Päivitä opettajan tiedot";
 		//	cout << endl << "13) Päivitä opiskelijan tiedot";

@@ -54,6 +54,16 @@ int Koulutusohjelma::etsiOpettaja()
 
 int Koulutusohjelma::etsiOpiskelija()
 {
+	string nimi;
+
+	cout << " Anna opiskelijan opiskelijanumero: ";
+	getline(cin, nimi);
+
+	for (int i = 0; i < opiskelijat_.size(); i++)
+	{
+		if (nimi == opiskelijat_[i].annaOpiskelijanumero())
+			return i;
+	}
 	return -1;
 }
 
@@ -61,7 +71,7 @@ void Koulutusohjelma::poistaOpe()
 {
 	int indeksi = etsiOpettaja();
 
-	if (indeksi > 0)
+	if (indeksi >= 0)
 	{
 	opettajat_.erase(opettajat_.begin() + indeksi);
 	}
@@ -72,6 +82,15 @@ void Koulutusohjelma::poistaOpe()
 
 void Koulutusohjelma::poistaOpiskelijaNumerolla()
 {
+	int indeksi = etsiOpiskelija();
+
+	if (indeksi >= 0)
+	{
+		opiskelijat_.erase(opiskelijat_.begin() + indeksi);
+	}
+	else
+		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
+
 }
 
 void Koulutusohjelma::tulostaOpettajat() const

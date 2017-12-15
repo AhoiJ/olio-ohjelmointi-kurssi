@@ -117,6 +117,23 @@ void Koulu::tulostaKoulutusohjelmanOppilaat() const
 		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
 }
 
+void Koulu::poistaOppilas()
+{
+
+	cout << " Valitsit Oppilaan poiston " << endl;
+
+	int	indeksi = etsiKoulutusohjelma();
+
+	if (indeksi >= 0)
+	{
+		koulutusohjelmat_[indeksi].poistaOpiskelijaNumerolla();
+	}
+	else
+		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
+
+
+}
+
 
 //Metodi palauttaa kohdan vektorista, josta koulutusohjelma löytyy. Jos ei löydy, palautuu -1.
 
