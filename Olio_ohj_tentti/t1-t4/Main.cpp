@@ -8,7 +8,7 @@ using std::cout; using std::endl;
 
 int main()
 {
-	/* TEHTÄVÄ 3
+	// TEHTÄVÄ 3
 
 	Sylinteri obj(5.0, 4.2);
 
@@ -20,7 +20,7 @@ int main()
 
 	system("pause");
 	return 0;
-	*/
+	
 
 	// tehtävä 4
 
