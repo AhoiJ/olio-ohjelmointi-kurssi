@@ -17,6 +17,9 @@ public:
 	void lisaaOpettaja();
 	void lisaaOpiskelija();
 
+	int etsiOpettaja();
+	int etsiOpiskelija();
+
 	void poistaOpe();
 	void poistaOpiskelijaNumerolla();
 

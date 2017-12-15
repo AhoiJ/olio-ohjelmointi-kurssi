@@ -84,7 +84,7 @@ void Koulu::poistaOpettaja()
 
 	if (indeksi >= 0)
 	{
-		koulutusohjelmat_[indeksi].tulostaOpiskelijat();
+		koulutusohjelmat_[indeksi].poistaOpe();
 	}
 	else
 		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
@@ -111,7 +111,7 @@ void Koulu::tulostaKoulutusohjelmanOppilaat() const
 
 	if (indeksi >= 0)
 	{
-		koulutusohjelmat_[indeksi];
+		koulutusohjelmat_[indeksi].tulostaOpiskelijat();
 	}
 	else
 		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
