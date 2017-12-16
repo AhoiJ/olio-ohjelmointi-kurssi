@@ -1,8 +1,9 @@
 #pragma once
 #include "Koulutusohjelma.h"
+#include <string>
+#include <vector>
 
-
-using std::string;
+using std::string; using std::vector;
 
 class Koulu
 {
@@ -13,6 +14,7 @@ public:
 
 	string annaNimi() const;
 	void asetanimi(string nimi);
+
 	void lisaaKoulutusohjelma();
 	void tulostaKoulutusohjelma() const;
 	void tulostaKoulutusohjelmienMaara() const;
@@ -38,12 +40,14 @@ public:
 	void poistaKoulutusOhjelma();
 	void paivitaKoulutusOhjelma();
 
-	void lueTiedotFilesta() const;
+	void lataaTiedosto();
 
 private:
 
 	string nimi_;
 	vector <Koulutusohjelma> koulutusohjelmat_;
+	int etsiKoulutusohjelmaLataus(string nimi); // Koulutusohjelman  etsin, ilman kysymistä
+
 
 };
 

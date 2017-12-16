@@ -9,7 +9,7 @@ Tyontekija::Tyontekija() : Henkilo(), tunnus_(), palkka_(0.0)
 {
 }
 
-Tyontekija::Tyontekija(string etunimi, string sukunimi, string osoite, string puhelinnumero, string tunnus, float palkka) :
+Tyontekija::Tyontekija(string etunimi, string sukunimi, string osoite, string tunnus, float palkka, string puhelinnumero) :
 	Henkilo(etunimi, sukunimi, osoite, puhelinnumero), tunnus_(tunnus), palkka_(palkka)
 {
 }
@@ -43,7 +43,7 @@ void Tyontekija::asetaPalkka(float palkka)
 	palkka_ = palkka;
 }
 
-/*
+
 Tyontekija & Tyontekija::operator=(const Tyontekija & alkup)
 {
 	if (this != &alkup)
@@ -56,7 +56,7 @@ Tyontekija & Tyontekija::operator=(const Tyontekija & alkup)
 	}
 	return *this;
 }
-*/
+
 void Tyontekija::tulosta() const
 {
 	Henkilo::tulosta();

@@ -5,7 +5,7 @@ class Opettaja :
 {
 public:
 	Opettaja();
-	Opettaja(string etunimi, string sukunimi, string osoite, string puhelinnumero, string tunnus, float palkka, string opetusala);
+	Opettaja(string etunimi, string sukunimi, string osoite,  string tunnus, float palkka, string opetusala, string puhelinnumero);
 	Opettaja(const Opettaja & alkup);
 	~Opettaja();
 	//getters
@@ -13,7 +13,7 @@ public:
 	//setters
 	void asetaOpetusala(string opetusala);
 
-//	Opettaja& operator =(const Opettaja& alkup);
+	Opettaja& operator =(const Opettaja& alkup);
 
 
 	void kysyTiedot();

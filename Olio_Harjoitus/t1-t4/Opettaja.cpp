@@ -10,8 +10,8 @@ Opettaja::Opettaja() : Tyontekija(), opetusala_()
 {
 }
 
-Opettaja::Opettaja(string etunimi, string sukunimi, string osoite, string puhelinnumero, string tunnus, float palkka, string opetusala) :
-	Tyontekija(etunimi, sukunimi, osoite, puhelinnumero, tunnus, palkka), opetusala_(opetusala)
+Opettaja::Opettaja(string etunimi, string sukunimi, string osoite, string tunnus, float palkka, string puhelinnumero, string opetusala) :
+	Tyontekija(etunimi, sukunimi, osoite, tunnus, palkka, puhelinnumero), opetusala_(opetusala)
 {
 }
 
@@ -35,7 +35,7 @@ void Opettaja::asetaOpetusala(string opetusala)
 }
 
 
-/*
+
 Opettaja & Opettaja::operator=(const Opettaja & alkup)
 {
 	if (this != &alkup)
@@ -46,7 +46,7 @@ Opettaja & Opettaja::operator=(const Opettaja & alkup)
 	}
 	return *this;
 }
-*/
+
 void Opettaja::kysyTiedot()
 {
 	Tyontekija::kysyTiedot();

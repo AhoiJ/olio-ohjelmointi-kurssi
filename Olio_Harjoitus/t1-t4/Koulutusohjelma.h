@@ -13,7 +13,6 @@ public:
 	Koulutusohjelma(string nimi);
 	~Koulutusohjelma();
 
-
 	void lisaaOpettaja();
 	void lisaaOpiskelija();
 
@@ -27,6 +26,10 @@ public:
 	void paivitaOppilas();
 	string tallennaOpettaja(int& indeksi, string& etunimi, string& sukunimi, string& osoite, string& tunnus, float& palkka, string& opetusala, string& puhelinnumero);
 	string tallennaOpiskelija(int& indeksi, string& etunimi, string& sukunimi, string& osoite, string& opiskelijanumero, string& puhelinnumero);
+
+	void lataaOpiskelija(int& indeksi, string& etunimi, string& sukunimi, string& osoite, string& opiskelijanumero, string& puhelinnumero);
+	void lataaOpettaja(int& indeksi, string& etunimi, string& sukunimi, string& osoite, string& tunnus, float& palkka, string& opetusala, string& puhelinnumero);
+
 
 	void tulostaOpettajat() const;
 	void tulostaOpiskelijat() const;

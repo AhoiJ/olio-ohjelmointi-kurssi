@@ -146,6 +146,18 @@ string Koulutusohjelma::tallennaOpiskelija(int & indeksi, string & etunimi, stri
 	return etunimi, sukunimi, osoite, opiskelijanumero, puhelinnumero; 
 }
 
+void Koulutusohjelma::lataaOpiskelija(int & indeksi, string & etunimi, string & sukunimi, string & osoite, string & opiskelijanumero, string & puhelinnumero)
+{
+	Opiskelija apu(etunimi, sukunimi, osoite, puhelinnumero, opiskelijanumero); // Luodaan opiskelija olio
+	opiskelijat_.push_back(apu); // Tuupataan se vektoriin.
+}
+
+void Koulutusohjelma::lataaOpettaja(int & indeksi, string & etunimi, string & sukunimi, string & osoite, string & tunnus, float & palkka, string & opetusala, string & puhelinnumero)
+{
+	Opettaja apu(etunimi, sukunimi, osoite,  tunnus, palkka, opetusala, puhelinnumero); // Luodaan opettajan olio
+	opettajat_.push_back(apu); // Tuupataan se vektoriin.
+}
+
 void Koulutusohjelma::tulostaOpettajat() const
 {
 	for (unsigned int i = 0; i < opettajat_.size(); i++)

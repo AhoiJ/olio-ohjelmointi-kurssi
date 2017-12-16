@@ -5,7 +5,7 @@ class Tyontekija :
 {
 public:
 	Tyontekija();
-	Tyontekija(string etunimi, string sukunimi, string osoite, string puhelinnumero, string tunnus, float palkka);
+	Tyontekija(string etunimi, string sukunimi, string osoite,  string tunnus, float palkka, string puhelinnumero);
 	Tyontekija(const Tyontekija & alkup);
 	~Tyontekija();
 	//getters
@@ -15,7 +15,7 @@ public:
 	void asetaTunnus(string tunnus);
 	void asetaPalkka(float palkka);
 
-//	Tyontekija& operator =(const Tyontekija& alkup);
+	Tyontekija& operator =(const Tyontekija& alkup);
 
 	void tulosta() const;
 	void kysyTiedot();

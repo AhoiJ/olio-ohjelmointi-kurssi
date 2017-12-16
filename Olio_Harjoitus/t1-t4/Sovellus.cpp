@@ -163,12 +163,16 @@ void Sovellus::aja() const
 
 		}
 
-		/*	else if (valinta == "14")
+			else if (valinta == "14")
 			{
-				testi.lueTiedotFilesta(); // poistettu kaikki tallennus ja lukemis koodit
-				Sleep(2500);
+				testi.lataaTiedosto(); // poistettu kaikki tallennus ja lukemis koodit
+				
+				do {
+					cout << " Paina valilyontia jatkaaksesi " << endl;
+
+				} while (_getch() != 32);
 			}
-			*/
+			
 			else if(valinta == "15")
 			{
 				cout << " Tietojen tallennus " << endl;
@@ -227,7 +231,7 @@ string Sovellus::tulostaValikko() const
 		cout << endl << "11) Paivita koulutusohjelman nimi";
 		cout << endl << "12) Paivita opettajan tiedot";
 		cout << endl << "13) Paivita opiskelijan tiedot";
-		//	cout << endl << "14) Lue tiedot";
+		cout << endl << "14) Lue tiedot";
 		cout << endl << "15) Tallenna tiedot";
 		cout << endl << "0) Lopeta";
 

@@ -4,9 +4,11 @@
 #include <ios>
 #include <conio.h>
 #include <iterator>
+#include <algorithm>
+#include <vector>
 
 using std::cout; using std::cin; using std::getline; using std::endl;
-using std::ofstream; using std::ifstream; using std::ios;
+using std::ofstream; using std::ifstream; using std::ios; using std::vector;
 
 Koulu::Koulu() : nimi_(), koulutusohjelmat_()
 {
@@ -314,7 +316,103 @@ void Koulu::paivitaKoulutusOhjelma()
 		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
 }
 
-void Koulu::lueTiedotFilesta() const
+void Koulu::lataaTiedosto()
 {
+	string tmp_nimi = " ", nimi, etunimi, sukunimi, opiskelijanumero, osoite, tunnus, opetusala, puhelinnumero, tmp_palkka;
+	float palkka; // Apumuuttujien alustus tiedoston lataamista varten.
+	std::string::size_type sz; // String -> Double muunnosta varten.
+	int indeksi = 0; // Laskureita ja apumuuttujia 
+	int laskuri = -1;
+	int laskuri2 = 0;
+	int apu = -1;
+	int tmp_laskuri = 0;
+
+	ifstream luku_tied_op; // luodaan tiedosto-olio lukua varten
+
+	luku_tied_op.open("Opiskelija.csv"); // Avataan "Opiskelija.csv"
+	if (luku_tied_op.is_open())
+	{
+		while (luku_tied_op.peek() != EOF) // luetaan tiedosto loppuu, End Of File
+		{
+			getline(luku_tied_op, nimi, ';'); // Luetaan nimi 
+			if (nimi != tmp_nimi) // Tarkistetaan onko nimi uusi
+			{
+				tmp_nimi = nimi; // Tehdään uudesta nimestä vertailunimi
+				koulutusohjelmat_.push_back(nimi); // Laitetaan nimi vektoriin.
+				indeksi = 0; // Apumuuttuja
+				laskuri++;
+			}
+			getline(luku_tied_op, etunimi, ';');
+			getline(luku_tied_op, sukunimi, ';');
+			getline(luku_tied_op, osoite, ';');
+			getline(luku_tied_op, opiskelijanumero, ';');
+			getline(luku_tied_op, puhelinnumero, '\n'); // Käsitellään tiedostoa, ei lueta vielä vektoriin.
+			laskuri2++; // Lasketaan montako riviä tiedostossa oli.
+
+		}
+		luku_tied_op.close();
+
+		laskuri = -1; // Alustetaan apumuuttujat alkuarvoihin.
+		indeksi = 0;
+		tmp_nimi = " ";
+		nimi = " ";
+
+		luku_tied_op.open("Opiskelija.csv");
+		if (luku_tied_op.is_open())
+		{
+			while (laskuri2 != 0) // Luetaan tiedostoa, edelliseltä kerralta jäi tieto rivien määrästä.
+			{
+				getline(luku_tied_op, nimi, ';'); // Haetaan nimi
+				apu = etsiKoulutusohjelmaLataus(nimi); // Katsotaan nimen sijainti vektorissa.
+				getline(luku_tied_op, etunimi, ';'); // Haetaan muut opiskelijan tiedot.
+				getline(luku_tied_op, sukunimi, ';');
+				getline(luku_tied_op, osoite, ';');
+				getline(luku_tied_op, opiskelijanumero, ';');
+				getline(luku_tied_op, puhelinnumero, ';');
+
+
+				if (apu >= 0) // Koulutusohjelma löytyi vektorista
+				{
+					tmp_laskuri = apu; // Alustetaan koulutusohjelman sijainti vektorissa. Jotta saadaan koulutusohjelma oikeaan paikkaan.
+					koulutusohjelmat_.at(tmp_laskuri).lataaOpiskelija(indeksi, etunimi, sukunimi, osoite, opiskelijanumero, puhelinnumero);
+					laskuri2--; // Ensin lisätään opiskelijat vektoriin, sitten vähennetän laskuria, koska rivi käsitelty.
+				}
+				else // Ei löydy. Lisätään siis opiskelija vektorin seuraavaan vapaaseen paikkaan. 
+				{
+					laskuri++;
+					koulutusohjelmat_.at(laskuri).lataaOpiskelija(indeksi, etunimi, sukunimi, osoite, opiskelijanumero, puhelinnumero);
+					laskuri2--;
+				}
+				apu = -1; // Palautetaan vektorisijainti -1, jotta ei tapahdu virheellistä indeksointia.
+			}
+
+			luku_tied_op.close();
+		}
+		else // Tiedosto käytössä. Ei voida avata.
+			cout << "Tiedostoa ei voitu avata! " << endl;
+	}
 
 }
+
+int Koulu::etsiKoulutusohjelmaLataus(string nimi)
+{
+	string ko_nimi; // Apumuuttuja
+
+	for (unsigned int i = 0; i < koulutusohjelmat_.size(); i++) // Käydään kaikki koulutusohjelmat läpi.
+	{
+		ko_nimi = koulutusohjelmat_.at(i).annaNimi();
+
+		std::transform(ko_nimi.begin(), ko_nimi.end(), ko_nimi.begin(), ::tolower);
+		std::transform(nimi.begin(), nimi.end(), nimi.begin(), ::tolower);
+
+		if (nimi == ko_nimi) // Nimi löytyi.
+		{
+			return i;
+		}
+	}
+
+	return -1; // Nimeä ei löytynyt.
+
+}
+
+
