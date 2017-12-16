@@ -15,6 +15,7 @@ public:
 
 //	Opettaja& operator =(const Opettaja& alkup);
 
+
 	void kysyTiedot();
 	void tulosta() const;
 

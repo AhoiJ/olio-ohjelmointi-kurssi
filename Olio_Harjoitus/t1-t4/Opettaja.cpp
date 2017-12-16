@@ -1,8 +1,9 @@
 #include "Opettaja.h"
 #include <iostream>
 #include <conio.h>
+#include <fstream>
 
-using std::cout; using std::cin; using std::endl; using std::getline;
+using std::cout; using std::cin; using std::endl; using std::getline; using std::ofstream;
 
 
 Opettaja::Opettaja() : Tyontekija(), opetusala_()
@@ -32,6 +33,7 @@ void Opettaja::asetaOpetusala(string opetusala)
 {
 	opetusala_ = opetusala;
 }
+
 
 /*
 Opettaja & Opettaja::operator=(const Opettaja & alkup)

@@ -1,10 +1,13 @@
 #include "Koulutusohjelma.h"
 #include <iostream>
 #include <fstream>
+#include <ios>
+#include <conio.h>
 #include <iterator>
-#include <vector>
 
-using std::cout; using std::cin; using std::getline; using std::endl; using std::ofstream; using std::ifstream;
+using std::cout; using std::cin; using std::getline; using std::endl;
+using std::ofstream; using std::ifstream; using std::ios;
+
 
 Koulutusohjelma::Koulutusohjelma() : nimi_(), opettajat_(), opiskelijat_()
 {
@@ -118,6 +121,31 @@ void Koulutusohjelma::paivitaOppilas()
 
 }
 
+string Koulutusohjelma::tallennaOpettaja(int & indeksi, string & etunimi, string & sukunimi, string & osoite, string & tunnus, float & palkka, string & opetusala, string & puhelinnumero)
+{
+	etunimi = opettajat_.at(indeksi).annaEtunimi();
+	sukunimi = opettajat_.at(indeksi).annaSukunimi();
+	osoite = opettajat_.at(indeksi).annaOsoite();
+	tunnus = opettajat_.at(indeksi).annaTunnus();
+	palkka = opettajat_.at(indeksi).annaPalkka();
+	opetusala = opettajat_.at(indeksi).annaOpetusala();
+	puhelinnumero = opettajat_.at(indeksi).annaPuhelinnumero();
+
+	return indeksi, etunimi, sukunimi, osoite, tunnus, palkka, opetusala, puhelinnumero;
+}
+
+string Koulutusohjelma::tallennaOpiskelija(int & indeksi, string & etunimi, string & sukunimi, string & osoite, string & opiskelijanumero, string & puhelinnumero)
+{
+	
+	etunimi = opiskelijat_.at(indeksi).annaEtunimi(); 
+	sukunimi = opiskelijat_.at(indeksi).annaSukunimi(); 
+	osoite = opiskelijat_.at(indeksi).annaOsoite(); 
+	opiskelijanumero = opiskelijat_.at(indeksi).annaOpiskelijanumero();
+	puhelinnumero = opiskelijat_.at(indeksi).annaPuhelinnumero();
+
+	return etunimi, sukunimi, osoite, opiskelijanumero, puhelinnumero; 
+}
+
 void Koulutusohjelma::tulostaOpettajat() const
 {
 	for (unsigned int i = 0; i < opettajat_.size(); i++)
@@ -128,6 +156,18 @@ void Koulutusohjelma::tulostaOpiskelijat() const
 {
 	for (unsigned int i = 0; i < opiskelijat_.size(); i++)
 		opiskelijat_[i].tulosta();
+}
+
+int Koulutusohjelma::opettajienMaara(int & indeksi)
+{
+	indeksi = opettajat_.size();
+	return indeksi;
+}
+
+int Koulutusohjelma::opiskelijoidenMaara(int & indeksi)
+{
+	indeksi = opiskelijat_.size();
+	return indeksi;
 }
 
 

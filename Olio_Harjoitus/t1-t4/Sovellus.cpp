@@ -22,9 +22,11 @@ void Sovellus::aja() const
 
 	string valinta;
 
-	ofstream file;
+	ofstream opeFile;
+	ofstream oppilasFile;
 
-//	file.open("Tiedot.csv");
+	opeFile.open("Opettaja.csv");
+	oppilasFile.open("Opiskelija.csv");
 
 	do
 	{
@@ -80,7 +82,7 @@ void Sovellus::aja() const
 
 		else if (valinta == "6")
 		{
-			testi.lisaaKoulutusohjelmaanOpiskelija(); // Opiskelijatiedot lis‰t‰‰n cvs fileen opiskelija.cpp:ss‰, t‰ytyy tehd‰ erillinen toiminto?
+			testi.lisaaKoulutusohjelmaanOpiskelija();
 			do {
 				cout << " Paina valilyontia jatkaaksesi " << endl;
 
@@ -97,7 +99,7 @@ void Sovellus::aja() const
 		
 		else if (valinta == "8")
 		{
-			testi.poistaKoulutusOhjelma(); // t‰‰l‰ nyt
+			testi.poistaKoulutusOhjelma(); 
 
 			do {
 				cout << " Paina valilyontia jatkaaksesi " << endl;
@@ -166,12 +168,21 @@ void Sovellus::aja() const
 				testi.lueTiedotFilesta(); // poistettu kaikki tallennus ja lukemis koodit
 				Sleep(2500);
 			}
-
+			*/
 			else if(valinta == "15")
 			{
+				cout << " Tietojen tallennus " << endl;
+
+				testi.tallennaOpettajat();
+				testi.tallennaOppilaat();
+
+				do {
+					cout << " Paina valilyontia jatkaaksesi " << endl;
+
+				} while (_getch() != 32);
 
 			}
-		*/
+		
 		else if (valinta == "0")
 		{
 			cout << " Haluatko varmasti lopettaa? syota y " << endl;
@@ -217,7 +228,7 @@ string Sovellus::tulostaValikko() const
 		cout << endl << "12) Paivita opettajan tiedot";
 		cout << endl << "13) Paivita opiskelijan tiedot";
 		//	cout << endl << "14) Lue tiedot";
-		//	cout << endl << "15) Tallenna tiedot";
+		cout << endl << "15) Tallenna tiedot";
 		cout << endl << "0) Lopeta";
 
 		cout << endl << "Valintasi: ";

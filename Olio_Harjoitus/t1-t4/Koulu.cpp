@@ -3,6 +3,7 @@
 #include <fstream>
 #include <ios>
 #include <conio.h>
+#include <iterator>
 
 using std::cout; using std::cin; using std::getline; using std::endl;
 using std::ofstream; using std::ifstream; using std::ios;
@@ -191,6 +192,75 @@ void Koulu::paivitaOppilas()
 
 }
 
+void Koulu::tallennaOpettajat()
+{
+
+	//	Opettaja tallennus;
+
+	ofstream opeFile;
+
+	opeFile.open("Opettaja.csv");
+
+	string tmp_etunimi, tmp_sukunimi, tmp_opnumero, tmp_osoite, tmp_puhelinnumero, tmp_tunnus, tmp_opetusala;
+	float tmpPalkka;
+	int indeksi = 0;
+
+	for (unsigned int j = 0; j < koulutusohjelmat_.size(); j++) // Kunnes kaikki koulutusohjelmat on tallennettu.
+	{
+		int apu = j;
+		unsigned int apu2 = noudaKoulutusohjelmienOpettajienMaara(apu);
+
+		for (unsigned int i = 0; i < apu2; i++) // Kirjoitetaan tiedostoa kunnes kaikki koulutusohjelman opiskelijat on tallennettu, sitten seuraavaa koulutusohjelmaa.
+		{
+			indeksi = i;
+			koulutusohjelmat_[j].tallennaOpettaja(indeksi, tmp_etunimi, tmp_sukunimi, tmp_osoite, tmp_tunnus, tmpPalkka, tmp_opetusala, tmp_puhelinnumero);
+			opeFile << koulutusohjelmat_[j].annaNimi() << ";" << tmp_etunimi << ";" << tmp_sukunimi << ";" << tmp_osoite << ";" << tmp_tunnus << ";" << tmpPalkka << ";" << tmp_opetusala << ";" << tmp_puhelinnumero << ";" << endl;
+		}
+	}
+	opeFile.close(); // Tiedoston sulkeminen.
+
+}
+
+void Koulu::tallennaOppilaat()
+{
+	ofstream oppilasFile;
+
+	oppilasFile.open("Opiskelija.csv");
+
+
+	string tmp_etunimi, tmp_sukunimi, tmp_opnumero, tmp_osoite, tmp_puhelinnumero, tmp_tunnus, tmp_opetusala;
+	float tmpPalkka;
+	int indeksi = 0;
+
+	for (unsigned int j = 0; j < koulutusohjelmat_.size(); j++) // Kunnes kaikki koulutusohjelmat on tallennettu.
+	{
+		int apu = j;
+		unsigned int apu2 = noudaKoulutusohjelmienOpiskelijoidenMaara(apu); // Apumuuttuja, jotta opiskelijat saadaan kaikki tallennettua
+		for (unsigned int i = 0; i < apu2; i++) // Kirjoitetaan tiedostoa kunnes kaikki koulutusohjelman opiskelijat on tallennettu, sitten seuraavaa koulutusohjelmaa.
+		{
+			indeksi = i;
+			koulutusohjelmat_[j].tallennaOpiskelija(indeksi, tmp_etunimi, tmp_sukunimi, tmp_osoite, tmp_opnumero, tmp_puhelinnumero);
+			oppilasFile << koulutusohjelmat_[j].annaNimi() << ";" << tmp_etunimi << ";" << tmp_sukunimi << ";" << tmp_osoite << ";" << tmp_opnumero << ";" << tmp_puhelinnumero << ";" << endl;
+		}
+	}
+	oppilasFile.close(); // Tiedoston sulkeminen.
+
+}
+
+
+int Koulu::noudaKoulutusohjelmienOpettajienMaara(int & indeksi)
+{
+	int apu;
+	apu = koulutusohjelmat_[indeksi].opettajienMaara(indeksi);
+	return apu;
+}
+
+int Koulu::noudaKoulutusohjelmienOpiskelijoidenMaara(int & indeksi)
+{
+	int apu;
+	apu = koulutusohjelmat_[indeksi].opiskelijoidenMaara(indeksi);
+	return apu;
+}
 
 //Metodi palauttaa kohdan vektorista, josta koulutusohjelma löytyy. Jos ei löydy, palautuu -1.
 

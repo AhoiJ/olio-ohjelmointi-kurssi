@@ -27,6 +27,12 @@ public:
 	void poistaOppilas();
 	void paivitaOppilas();
 
+	void tallennaOpettajat();
+	void tallennaOppilaat();
+
+	int noudaKoulutusohjelmienOpettajienMaara(int& indeksi);
+	int noudaKoulutusohjelmienOpiskelijoidenMaara(int& indeksi);
+
 	int etsiKoulutusohjelma() const;
 
 	void poistaKoulutusOhjelma();
