@@ -28,6 +28,8 @@ public:
 	int etsiKoulutusohjelma() const;
 
 	void poistaKoulutusOhjelma();
+	void paivitaKoulutusOhjelma();
+
 	void lueTiedotFilesta() const;
 
 private:

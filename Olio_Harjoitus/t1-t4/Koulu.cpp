@@ -4,7 +4,8 @@
 #include <ios>
 #include <conio.h>
 
-using std::cout; using std::cin; using std::getline; using std::endl; using std::ofstream; using std::ifstream; using std::ios;
+using std::cout; using std::cin; using std::getline; using std::endl;
+using std::ofstream; using std::ifstream; using std::ios;
 
 Koulu::Koulu() : nimi_(), koulutusohjelmat_()
 {
@@ -192,6 +193,26 @@ void Koulu::poistaKoulutusOhjelma()
 	else
 		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
 
+}
+
+void Koulu::paivitaKoulutusOhjelma()
+{
+	cout << " Valitsit koulutusohjelman paivitysen " << endl;
+
+	int indeksi = etsiKoulutusohjelma();
+
+	string testi;
+
+	if (indeksi >= 0)
+	{
+		cout << " Anna uusi nimi: ";
+
+		getline(cin, testi);
+
+		koulutusohjelmat_[indeksi].asetaNimi(testi);
+	}
+	else
+		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
 }
 
 void Koulu::lueTiedotFilesta() const

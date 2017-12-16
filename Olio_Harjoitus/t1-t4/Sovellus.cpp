@@ -20,13 +20,11 @@ void Sovellus::aja() const
 {
 	Koulu testi("TAMK"); // pakko luoda parametrirakentaja, defaultrakentaja ei toimi koska siinä ei ole asetettu parametrejä.
 
-//	Koulutusohjelma ahoi;
-
 	string valinta;
 
 	ofstream file;
 
-	file.open("Tiedot.csv");
+//	file.open("Tiedot.csv");
 
 	do
 	{
@@ -130,6 +128,18 @@ void Sovellus::aja() const
 
 		}
 
+		else if (valinta == "11")
+		{
+			testi.paivitaKoulutusOhjelma();
+
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+
+		}
+
+
 		/*	else if (valinta == "14")
 			{
 				testi.lueTiedotFilesta(); // poistettu kaikki tallennus ja lukemis koodit
@@ -182,9 +192,9 @@ string Sovellus::tulostaValikko() const
 		cout << endl << "8) Poista koulutusohjelma";
 		cout << endl << "9) Poista opettaja";
 		cout << endl << "10) Poista opiskelija";
-		//	cout << endl << "11) Päivitä koulutusohjelman nimi";
-		//	cout << endl << "12) Päivitä opettajan tiedot";
-		//	cout << endl << "13) Päivitä opiskelijan tiedot";
+		cout << endl << "11) Paivita koulutusohjelman nimi";
+		//	cout << endl << "12) Paivita opettajan tiedot";
+		//	cout << endl << "13) Paivita opiskelijan tiedot";
 		//	cout << endl << "14) Lue tiedot";
 		//	cout << endl << "15) Tallenna tiedot";
 		cout << endl << "0) Lopeta";
