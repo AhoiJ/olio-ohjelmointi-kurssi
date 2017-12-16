@@ -391,6 +391,89 @@ void Koulu::lataaTiedosto()
 		else // Tiedosto käytössä. Ei voida avata.
 			cout << "Tiedostoa ei voitu avata! " << endl;
 	}
+	indeksi = 0;
+	laskuri = -1;
+	laskuri2 = 0;
+
+	// Palautetaan muuttujat alkuarvoihin opettajien latausta varten.
+
+	luku_tied_op.open("Opettaja.csv"); // Avataan opettajien tiedosto
+	if (luku_tied_op.is_open()) // Avaus onnistui
+	{
+		while (luku_tied_op.peek() != EOF) // luetaan tiedosto loppuu, End Of File
+		{
+			getline(luku_tied_op, nimi, ';'); // Haetaan koulutusohjelma
+			if (nimi != tmp_nimi) // Uusi nimi
+			{
+				if (etsiKoulutusohjelmaLataus(nimi) >= 0) // Tarkistetaan löytyykö koulutusohjelma jo vektorista.
+				{
+					// Löytyi. Ei lisätä sitä vektoriin.
+				}
+				else // Ei löytynyt. Lisätään koulutusohjelma vektoriin ja tehdään lisätystä nimestä uusi vertailunimi.
+				{
+					tmp_nimi = nimi;
+					koulutusohjelmat_.push_back(nimi);
+					indeksi = 0;
+					laskuri++;
+				}
+			}
+			getline(luku_tied_op, etunimi, ';');
+			getline(luku_tied_op, sukunimi, ';');
+			getline(luku_tied_op, osoite, ';');
+			getline(luku_tied_op, tunnus, ';');
+			getline(luku_tied_op, tmp_palkka, ';'); // TÄSSÄ PALKKA ON STRING
+			getline(luku_tied_op, opetusala, ';');
+			getline(luku_tied_op, puhelinnumero, '\n'); // Käydään koko rivi lävitse. Ei lisätä vielä vektoriin.
+			laskuri2++; // Rivimäärän käsittely
+
+		}
+
+		luku_tied_op.close();
+
+		// Opettajien koulutusohjelmat lisätty vektoriin. Apumuuttujien palaautus alkuarvoon.
+		laskuri = -1;
+		indeksi = 0;
+		tmp_nimi = " ";
+		apu = -1;
+
+		luku_tied_op.open("Opettaja.csv"); // Avataan tiedosto uudelleen opettajien latausta varten.
+		if (luku_tied_op.is_open())
+		{
+			while (laskuri2 != 0) // luetaan tiedosto loppuu, End Of File
+			{
+				getline(luku_tied_op, nimi, ';');
+				apu = etsiKoulutusohjelmaLataus(nimi); // Etsitään koulutusohjelman sijainti vektorista.
+				getline(luku_tied_op, etunimi, ';');
+				getline(luku_tied_op, sukunimi, ';');
+				getline(luku_tied_op, osoite, ';');
+				getline(luku_tied_op, tunnus, ';');
+				getline(luku_tied_op, tmp_palkka, ';'); // Otetaan palkka apumuuttujalla string muodossa.
+				palkka = std::stof(tmp_palkka, &sz); // Muunnetaan palkka stringistä doubleksi.
+				getline(luku_tied_op, opetusala, ';');
+				getline(luku_tied_op, puhelinnumero, ';');
+
+
+				if (apu >= 0) // Koulutusohjelma löytyi vektorista.
+				{
+					tmp_laskuri = apu; // Lisätään opettaja olio oikeaan vektorin paikkaan. Lisäys aliohjelmassa lataaOpettaja.
+					koulutusohjelmat_.at(tmp_laskuri).lataaOpettaja(indeksi, etunimi, sukunimi, osoite, tunnus, palkka, opetusala, puhelinnumero);
+					laskuri2--;
+				}
+				else
+				{
+					laskuri++; // Lisätään laskuria. Lisätään opettaja olio oikeaan paikkaan. Lisäys aliohjelmassa.
+					koulutusohjelmat_.at(laskuri).lataaOpettaja(indeksi, etunimi, sukunimi, osoite, tunnus, palkka, opetusala, puhelinnumero);
+					laskuri2--;
+				}
+
+			}
+
+			luku_tied_op.close();
+			cout << "Rekisterin lataus onnistui" << endl;
+		}
+		else
+			cout << "Tiedostoa ei voitu avata! " << endl; // Ei voitu avata tiedostoa.
+	}
 
 }
 

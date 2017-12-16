@@ -22,11 +22,11 @@ void Sovellus::aja() const
 
 	string valinta;
 
-	ofstream opeFile;
-	ofstream oppilasFile;
+//	ofstream opeFile;
+//	ofstream oppilasFile;
 
-	opeFile.open("Opettaja.csv");
-	oppilasFile.open("Opiskelija.csv");
+//	opeFile.open("Opettaja.csv");
+//	oppilasFile.open("Opiskelija.csv");
 
 	do
 	{
@@ -165,7 +165,7 @@ void Sovellus::aja() const
 
 			else if (valinta == "14")
 			{
-				testi.lataaTiedosto(); // poistettu kaikki tallennus ja lukemis koodit
+				testi.lataaTiedosto(); 
 				
 				do {
 					cout << " Paina valilyontia jatkaaksesi " << endl;
