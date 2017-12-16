@@ -15,7 +15,7 @@ public:
 	//setters
 	void asetaOpiskelijanumero(string opiskelijanumero);
 
-	Opiskelija& operator =(const Opiskelija& alkup);
+//	Opiskelija& operator =(const Opiskelija& alkup);
 
 	void asetaTiedotFileen() const;
 

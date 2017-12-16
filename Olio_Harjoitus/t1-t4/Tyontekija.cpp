@@ -1,5 +1,6 @@
 #include "Tyontekija.h"
 #include <iostream>
+#include <conio.h>
 
 using std::cout; using std::cin; using std::endl; using std::getline;
 
@@ -42,6 +43,7 @@ void Tyontekija::asetaPalkka(float palkka)
 	palkka_ = palkka;
 }
 
+/*
 Tyontekija & Tyontekija::operator=(const Tyontekija & alkup)
 {
 	if (this != &alkup)
@@ -54,7 +56,7 @@ Tyontekija & Tyontekija::operator=(const Tyontekija & alkup)
 	}
 	return *this;
 }
-
+*/
 void Tyontekija::tulosta() const
 {
 	Henkilo::tulosta();
@@ -65,11 +67,63 @@ void Tyontekija::kysyTiedot()
 {
 	string palkka; // apumuuttuja
 
-	Henkilo::kysyTiedot();
-	cout << "	Anna tunnus: ";
-	getline(cin, tunnus_);
-	cout << "	Anna palkka: ";
-	getline(cin, palkka);
-	palkka_ = atof(palkka.c_str());
+	int tunnusTark = 0;
+	int palkkaTark = 0;
 
+	Henkilo::kysyTiedot();
+
+	do
+	{
+		cout << "	Anna tunnus: ";
+		getline(cin, tunnus_);
+
+		for (int i = 0; i < tunnus_.length(); i++)
+		{
+			if (isdigit(tunnus_[i]))
+				tunnusTark++;
+		}
+		if (tunnusTark == tunnus_.length())
+			tunnusTark = 1;
+		else
+			tunnusTark = 0;
+		
+		if (tunnusTark == 0)
+		{
+			cout << " Syotteessa saa olla vain numeroja " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+	} while (tunnusTark == 0);
+
+	do
+	{
+
+		cout << "	Anna palkka: ";
+		getline(cin, palkka);
+
+
+		for (int i = 0; i < palkka.length(); i++)
+		{
+			if (isdigit(palkka[i]))
+				palkkaTark++;
+		}
+		if (palkkaTark == palkka.length())
+			palkkaTark = 1;
+		else
+			palkkaTark = 0;
+
+		if (palkkaTark == 0)
+		{
+			cout << " Syotteessa saa olla vain numeroja " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+
+	} while (palkkaTark == 0);
+
+	palkka_ = atof(palkka.c_str());
 }

@@ -33,7 +33,7 @@ void Koulutusohjelma::lisaaOpiskelija()
 	tmp.kysyTiedot();
 	opiskelijat_.push_back(tmp);
 	
-	string temporary;
+	// string temporary;
 
 }
 
@@ -44,7 +44,7 @@ int Koulutusohjelma::etsiOpettaja()
 	cout << " Anna opettajan tunnus: ";
 	getline(cin, nimi);
 
-	for (int i = 0; i < opettajat_.size(); i++)
+	for (unsigned int i = 0; i < opettajat_.size(); i++)
 	{
 		if (nimi == opettajat_[i].annaTunnus())
 			return i;
@@ -73,11 +73,11 @@ void Koulutusohjelma::poistaOpe()
 
 	if (indeksi >= 0)
 	{
-	opettajat_.erase(opettajat_.begin() + indeksi);
+		opettajat_.erase(opettajat_.begin() + indeksi);
+		
 	}
 	else
-		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
-
+		cout << " Opettajaa ei loytynyt ";
 }
 
 void Koulutusohjelma::poistaOpiskelijaNumerolla()

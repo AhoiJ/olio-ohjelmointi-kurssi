@@ -24,7 +24,7 @@ public:
 	void asetaOsoite(string osoite);
 	void asetaPuhelinnumero(string puhelinnumero);
 
-	Henkilo& operator =(const Henkilo& alkup);
+//	Henkilo& operator =(const Henkilo& alkup);
 
 	void kysyTiedot();
 	void tulosta() const;

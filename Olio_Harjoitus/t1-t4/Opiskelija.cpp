@@ -1,6 +1,7 @@
 #include "Opiskelija.h"
 #include <iostream>
 #include <fstream>
+#include <conio.h>
 
 using std::cout; using std::cin; using std::endl; using std::getline; using std::ofstream;
 
@@ -33,7 +34,7 @@ void Opiskelija::asetaOpiskelijanumero(string opiskelijanumero)
 	opiskelijanumero_ = opiskelijanumero;
 }
 
-
+/*
 Opiskelija & Opiskelija::operator=(const Opiskelija & alkup)
 {
 	if (this != &alkup)
@@ -44,7 +45,7 @@ Opiskelija & Opiskelija::operator=(const Opiskelija & alkup)
 	}
 	return *this;
 }
-
+*/
 
 void Opiskelija::asetaTiedotFileen() const
 {
@@ -55,9 +56,36 @@ void Opiskelija::asetaTiedotFileen() const
 void Opiskelija::kysyTiedot()
 {
 	Henkilo::kysyTiedot();
-	cout << "	Anna opiskelijanumero: ";
-	getline(cin, opiskelijanumero_);
 
+	int opiskelijaNumTark = 0;
+
+	do
+	{
+		cout << "	Anna opiskelijanumero: ";
+		getline(cin, opiskelijanumero_);
+
+
+
+		for (int i = 0; i < opiskelijanumero_.length(); i++)
+		{
+			if (isdigit(opiskelijanumero_[i]))
+				opiskelijaNumTark++;
+		}
+
+		if (opiskelijaNumTark == opiskelijanumero_.length())
+			opiskelijaNumTark = 1;
+		else
+			opiskelijaNumTark = 0;
+
+		if (opiskelijaNumTark == 0)
+		{
+			cout << " Syotteessa saa olla vain numeroja " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+	} while (opiskelijaNumTark == 0);
 }
 
 void Opiskelija::tulosta() const

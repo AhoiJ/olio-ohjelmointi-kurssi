@@ -1,4 +1,5 @@
 #include "Henkilo.h"
+#include <conio.h>
 #include <iostream>
 
 using std::cout; using std::cin; using std::endl; using std::getline;
@@ -64,6 +65,7 @@ void Henkilo::asetaPuhelinnumero(string puhelinnumero)
 	puhelinnumero_ = puhelinnumero;
 }
 
+/*
 Henkilo & Henkilo::operator=(const Henkilo & alkup)
 {
 	if (this != &alkup)
@@ -79,17 +81,94 @@ Henkilo & Henkilo::operator=(const Henkilo & alkup)
 	}
 	return *this;
 }
+*/
 
 void Henkilo::kysyTiedot()
 {
-	cout << "	Anna etunimi: ";
-	getline(cin, etunimi_);
-	cout << "	Anna sukunimi: ";
-	getline(cin, sukunimi_);
-	cout << "	Anna osoite: ";
-	getline(cin, osoite_);
-	cout << "	Anna puhelinnumero: ";
-	getline(cin, puhelinnumero_);
+	int enimTark = 0;
+	int snimTark = 0;
+	int puhnumTark = 0;
+
+	do
+	{
+		cout << "	Anna etunimi: ";
+		getline(cin, etunimi_);
+		for (int i = 0; i < etunimi_.length(); i++)
+		{
+			if (isalpha(etunimi_[i]))
+				enimTark++;
+		}
+		if (enimTark == etunimi_.length())
+			enimTark = 1;
+		else
+			enimTark = 0;
+
+		if (enimTark == 0)
+		{
+			cout << " Syotteessa saa olla vain kirjaimia " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+	} while (enimTark == 0);
+
+	do
+	{
+		cout << "	Anna sukunimi: ";
+		getline(cin, sukunimi_);
+
+		for (int i = 0; i < sukunimi_.length(); i++)
+		{
+				if (isalpha(sukunimi_[i]))
+					snimTark++;
+			}
+		if (snimTark == sukunimi_.length())
+			snimTark = 1;
+		else
+			snimTark = 0;
+
+		if (snimTark == 0)
+		{
+			cout << " Syotteessa saa olla vain kirjaimia " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+
+	} while (snimTark == 0);
+
+
+		cout << "	Anna osoite: ";
+		getline(cin, osoite_);
+
+	do
+	{
+		cout << "	Anna puhelinnumero: ";
+		getline(cin, puhelinnumero_);
+
+		for (int i = 0; i < puhelinnumero_.length(); i++)
+		{
+			if (isdigit(puhelinnumero_[i]))
+				puhnumTark++;
+		}
+		if (puhnumTark == puhelinnumero_.length())
+			puhnumTark = 1;
+		else
+			puhnumTark = 0;
+
+		if (puhnumTark == 0)
+		{
+			cout << " Syotteessa saa olla vain numeroja " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+
+	} while (puhnumTark == 0);
+
 }
 
 void Henkilo::tulosta() const

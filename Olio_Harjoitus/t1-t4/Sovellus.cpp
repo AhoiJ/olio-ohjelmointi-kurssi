@@ -37,7 +37,7 @@ void Sovellus::aja() const
 		{
 			testi.lisaaKoulutusohjelma();
 			do {
-				cout << "Paina valilyontia jatkaaksesi " << endl;
+				cout << " Paina valilyontia jatkaaksesi " << endl;
 
 			} while (_getch() != 32);
 
@@ -47,7 +47,7 @@ void Sovellus::aja() const
 		{
 			testi.tulostaKoulutusohjelma();
 			do {
-				cout << "Paina valilyontia jatkaaksesi " << endl;
+				cout << " Paina valilyontia jatkaaksesi " << endl;
 
 			} while (_getch() != 32);
 
@@ -195,11 +195,16 @@ string Sovellus::tulostaValikko() const
 		for (int i = 0; i < valinta.length(); i++)
 		{
 			if (isdigit(valinta[i]))
-				paatos = 1;
+				paatos++;
 		}
+		if (paatos == valinta.length())
+			paatos = 1;
+		else
+			paatos = 0;
+
 		if (paatos == 0)
 		{
-			cout << " Syota numero! " << endl;
+			cout << " Syota vain numeroita! " << endl;
 			do {
 				cout << " Paina valilyontia jatkaaksesi " << endl;
 

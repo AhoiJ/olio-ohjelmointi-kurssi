@@ -1,5 +1,6 @@
 #include "Opettaja.h"
 #include <iostream>
+#include <conio.h>
 
 using std::cout; using std::cin; using std::endl; using std::getline;
 
@@ -32,6 +33,7 @@ void Opettaja::asetaOpetusala(string opetusala)
 	opetusala_ = opetusala;
 }
 
+/*
 Opettaja & Opettaja::operator=(const Opettaja & alkup)
 {
 	if (this != &alkup)
@@ -42,12 +44,39 @@ Opettaja & Opettaja::operator=(const Opettaja & alkup)
 	}
 	return *this;
 }
-
+*/
 void Opettaja::kysyTiedot()
 {
 	Tyontekija::kysyTiedot();
-	cout << "	Anna opetusala: ";
-	getline(cin, opetusala_);
+
+	int opeTark = 0;
+
+	do
+	{
+
+		cout << "	Anna opetusala: ";
+		getline(cin, opetusala_);
+
+		for (int i = 0; opetusala_.length(); i++)
+		{
+			if (isalpha(opetusala_[i]))
+				opeTark++;
+		}
+		if (opeTark == opetusala_.length())
+			opeTark = 1;
+		else
+			opeTark = 0;
+
+		if (opeTark == 0)
+		{
+			cout << " Syotteessa saa olla vain kirjaimia " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+
+	} while (opeTark == 0);
 }
 
 void Opettaja::tulosta() const
