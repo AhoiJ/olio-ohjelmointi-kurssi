@@ -176,6 +176,21 @@ void Koulu::poistaOppilas()
 
 }
 
+void Koulu::paivitaOppilas()
+{
+	cout << " Valitsit Oppilaan paivityksen " << endl;
+
+	int	indeksi = etsiKoulutusohjelma();
+
+	if (indeksi >= 0)
+	{
+		koulutusohjelmat_[indeksi].paivitaOppilas();
+	}
+	else
+		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
+
+}
+
 
 //Metodi palauttaa kohdan vektorista, josta koulutusohjelma löytyy. Jos ei löydy, palautuu -1.
 

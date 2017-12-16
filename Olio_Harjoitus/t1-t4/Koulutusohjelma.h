@@ -23,6 +23,7 @@ public:
 	void poistaOpe();
 	void paivitaOpe();
 	void poistaOpiskelijaNumerolla();
+	void paivitaOppilas();
 
 	void tulostaOpettajat() const;
 	void tulostaOpiskelijat() const;

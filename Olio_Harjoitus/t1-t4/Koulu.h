@@ -25,6 +25,7 @@ public:
 	void lisaaKoulutusohjelmaanOpiskelija();
 	void tulostaKoulutusohjelmanOppilaat() const;
 	void poistaOppilas();
+	void paivitaOppilas();
 
 	int etsiKoulutusohjelma() const;
 

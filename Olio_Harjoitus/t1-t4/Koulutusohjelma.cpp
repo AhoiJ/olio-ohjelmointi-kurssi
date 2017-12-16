@@ -105,6 +105,19 @@ void Koulutusohjelma::poistaOpiskelijaNumerolla()
 
 }
 
+void Koulutusohjelma::paivitaOppilas()
+{
+	int indeksi = etsiOpiskelija();
+
+	if (indeksi >= 0)
+	{
+		opiskelijat_[indeksi].kysyTiedot();
+	}
+	else
+		cout << " Opettajaa ei loytynyt ";
+
+}
+
 void Koulutusohjelma::tulostaOpettajat() const
 {
 	for (unsigned int i = 0; i < opettajat_.size(); i++)
