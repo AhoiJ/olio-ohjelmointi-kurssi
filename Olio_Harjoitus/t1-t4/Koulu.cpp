@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <ios>
+#include <conio.h>
 
 using std::cout; using std::cin; using std::getline; using std::endl; using std::ofstream; using std::ifstream; using std::ios;
 
@@ -32,8 +33,34 @@ void Koulu::lisaaKoulutusohjelma()
 {
 	string nimi;
 
-	cout << " Anna uuden koulutusohjelman nimi: ";
-	getline(cin, nimi);
+	int koulOhjTark = 0;
+
+	do
+	{
+		cout << " Anna uuden koulutusohjelman nimi: ";
+		getline(cin, nimi);
+
+		for (int i = 0; i < nimi.length(); i++)
+		{
+			if (isalpha(nimi[i]))
+				koulOhjTark++;
+		}
+
+		if (koulOhjTark == nimi.length())
+			koulOhjTark = 1;
+		else
+			koulOhjTark = 0;
+
+		if (koulOhjTark == 0)
+		{
+			cout << " Syotteessa saa olla vain kirjaimia " << endl;
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+		}
+
+	} while (koulOhjTark == 0);
 
 	Koulutusohjelma tmp(nimi);
 

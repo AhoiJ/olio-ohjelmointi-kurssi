@@ -57,7 +57,7 @@ void Opettaja::kysyTiedot()
 		cout << "	Anna opetusala: ";
 		getline(cin, opetusala_);
 
-		for (int i = 0; opetusala_.length(); i++)
+		for (int i = 0; i < opetusala_.length(); i++)
 		{
 			if (isalpha(opetusala_[i]))
 				opeTark++;
@@ -77,6 +77,7 @@ void Opettaja::kysyTiedot()
 		}
 
 	} while (opeTark == 0);
+
 }
 
 void Opettaja::tulosta() const

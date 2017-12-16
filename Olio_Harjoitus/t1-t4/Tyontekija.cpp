@@ -67,10 +67,10 @@ void Tyontekija::kysyTiedot()
 {
 	string palkka; // apumuuttuja
 
+	Henkilo::kysyTiedot();
+
 	int tunnusTark = 0;
 	int palkkaTark = 0;
-
-	Henkilo::kysyTiedot();
 
 	do
 	{

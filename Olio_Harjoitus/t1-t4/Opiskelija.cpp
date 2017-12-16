@@ -64,8 +64,6 @@ void Opiskelija::kysyTiedot()
 		cout << "	Anna opiskelijanumero: ";
 		getline(cin, opiskelijanumero_);
 
-
-
 		for (int i = 0; i < opiskelijanumero_.length(); i++)
 		{
 			if (isdigit(opiskelijanumero_[i]))
