@@ -117,6 +117,20 @@ void Koulu::poistaOpettaja()
 	else
 		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
 
+}
+
+void Koulu::paivitaOpettaja()
+{
+	cout << " Valitsit Opettajan paivityksen " << endl;
+
+	int	indeksi = etsiKoulutusohjelma();
+
+	if (indeksi >= 0)
+	{
+		koulutusohjelmat_[indeksi].paivitaOpe();
+	}
+	else
+		cout << " Koulutusohjelmaa ei loytynyt! " << endl;
 
 }
 

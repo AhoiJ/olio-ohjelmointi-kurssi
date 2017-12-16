@@ -21,6 +21,7 @@ public:
 	int etsiOpiskelija();
 
 	void poistaOpe();
+	void paivitaOpe();
 	void poistaOpiskelijaNumerolla();
 
 	void tulostaOpettajat() const;

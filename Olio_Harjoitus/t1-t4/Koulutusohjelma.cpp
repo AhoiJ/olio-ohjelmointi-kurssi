@@ -80,6 +80,18 @@ void Koulutusohjelma::poistaOpe()
 		cout << " Opettajaa ei loytynyt ";
 }
 
+void Koulutusohjelma::paivitaOpe()
+{
+	int indeksi = etsiOpettaja();
+
+	if (indeksi >= 0)
+	{
+		opettajat_[indeksi].kysyTiedot();
+	}
+	else
+		cout << " Opettajaa ei loytynyt ";
+}
+
 void Koulutusohjelma::poistaOpiskelijaNumerolla()
 {
 	int indeksi = etsiOpiskelija();

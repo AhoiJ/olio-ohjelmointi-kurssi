@@ -20,6 +20,7 @@ public:
 	void lisaaKoulutusohjelmaanOpettaja();
 	void tulostaKoulutusohjelmanOpettajat() const;
 	void poistaOpettaja();
+	void paivitaOpettaja();
 
 	void lisaaKoulutusohjelmaanOpiskelija();
 	void tulostaKoulutusohjelmanOppilaat() const;

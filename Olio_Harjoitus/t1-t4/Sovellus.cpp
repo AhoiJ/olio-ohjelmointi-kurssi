@@ -139,6 +139,16 @@ void Sovellus::aja() const
 
 		}
 
+		else if (valinta == "12")
+		{
+			testi.paivitaOpettaja();
+
+			do {
+				cout << " Paina valilyontia jatkaaksesi " << endl;
+
+			} while (_getch() != 32);
+
+		}
 
 		/*	else if (valinta == "14")
 			{
@@ -193,7 +203,7 @@ string Sovellus::tulostaValikko() const
 		cout << endl << "9) Poista opettaja";
 		cout << endl << "10) Poista opiskelija";
 		cout << endl << "11) Paivita koulutusohjelman nimi";
-		//	cout << endl << "12) Paivita opettajan tiedot";
+		cout << endl << "12) Paivita opettajan tiedot";
 		//	cout << endl << "13) Paivita opiskelijan tiedot";
 		//	cout << endl << "14) Lue tiedot";
 		//	cout << endl << "15) Tallenna tiedot";
