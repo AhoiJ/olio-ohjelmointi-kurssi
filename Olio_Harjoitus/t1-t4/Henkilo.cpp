@@ -91,13 +91,27 @@ void Henkilo::kysyTiedot()
 
 	do
 	{
-		cout << "	Anna etunimi: ";
-		getline(cin, etunimi_);
-		for (int i = 0; i < etunimi_.length(); i++)
-		{
-			if (isalpha(etunimi_[i]))
-				enimTark++;
-		}
+
+			cout << "	Anna etunimi: ";
+			getline(cin, etunimi_);
+		
+			try
+			{
+				for (int i = 0; i < 2; i++)
+					etunimi_.at(i);
+			}
+			catch (std::out_of_range &ex)
+			{
+				cout << " Vaadin sisaltoa!" << endl;
+				return kysyTiedot();
+			}
+		
+			for (int i = 0; i < etunimi_.length(); i++)
+			{
+				if (isalpha(etunimi_[i]))
+					enimTark++;
+			}
+	
 		if (enimTark == etunimi_.length())
 			enimTark = 1;
 		else

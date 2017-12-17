@@ -13,7 +13,7 @@ public:
 	//setters
 	void asetaOpetusala(string opetusala);
 
-	Opettaja& operator =(const Opettaja& alkup);
+//	Opettaja& operator =(const Opettaja& alkup);
 
 
 	void kysyTiedot();

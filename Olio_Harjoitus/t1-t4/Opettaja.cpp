@@ -35,7 +35,7 @@ void Opettaja::asetaOpetusala(string opetusala)
 }
 
 
-
+/*
 Opettaja & Opettaja::operator=(const Opettaja & alkup)
 {
 	if (this != &alkup)
@@ -46,6 +46,7 @@ Opettaja & Opettaja::operator=(const Opettaja & alkup)
 	}
 	return *this;
 }
+*/
 
 void Opettaja::kysyTiedot()
 {

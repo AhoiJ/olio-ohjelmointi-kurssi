@@ -43,7 +43,7 @@ void Tyontekija::asetaPalkka(float palkka)
 	palkka_ = palkka;
 }
 
-
+/*
 Tyontekija & Tyontekija::operator=(const Tyontekija & alkup)
 {
 	if (this != &alkup)
@@ -56,7 +56,7 @@ Tyontekija & Tyontekija::operator=(const Tyontekija & alkup)
 	}
 	return *this;
 }
-
+*/
 void Tyontekija::tulosta() const
 {
 	Henkilo::tulosta();

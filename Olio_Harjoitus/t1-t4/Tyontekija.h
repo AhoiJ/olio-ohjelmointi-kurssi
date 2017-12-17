@@ -15,7 +15,7 @@ public:
 	void asetaTunnus(string tunnus);
 	void asetaPalkka(float palkka);
 
-	Tyontekija& operator =(const Tyontekija& alkup);
+//	Tyontekija& operator =(const Tyontekija& alkup);
 
 	void tulosta() const;
 	void kysyTiedot();
