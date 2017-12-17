@@ -44,6 +44,17 @@ void Koulu::lisaaKoulutusohjelma()
 		cout << " Anna uuden koulutusohjelman nimi: ";
 		getline(cin, nimi);
 
+		try
+		{
+			for (int i = 0; i < 2; i++)
+				nimi.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Vaadin sisaltoa!" << endl;
+			return lisaaKoulutusohjelma();
+		}
+
 		for (int i = 0; i < nimi.length(); i++)
 		{
 			if (isalpha(nimi[i]))
@@ -234,11 +245,11 @@ void Koulu::tallennaOppilaat()
 	float tmpPalkka;
 	int indeksi = 0;
 
-	for (unsigned int j = 0; j < koulutusohjelmat_.size(); j++) // Kunnes kaikki koulutusohjelmat on tallennettu.
+	for (unsigned int j = 0; j < koulutusohjelmat_.size(); j++) 
 	{
 		int apu = j;
-		unsigned int apu2 = noudaKoulutusohjelmienOpiskelijoidenMaara(apu); // Apumuuttuja, jotta opiskelijat saadaan kaikki tallennettua
-		for (unsigned int i = 0; i < apu2; i++) // Kirjoitetaan tiedostoa kunnes kaikki koulutusohjelman opiskelijat on tallennettu, sitten seuraavaa koulutusohjelmaa.
+		unsigned int apu2 = noudaKoulutusohjelmienOpiskelijoidenMaara(apu); 
+		for (unsigned int i = 0; i < apu2; i++) 
 		{
 			indeksi = i;
 			koulutusohjelmat_[j].tallennaOpiskelija(indeksi, tmp_etunimi, tmp_sukunimi, tmp_osoite, tmp_opnumero, tmp_puhelinnumero);
@@ -319,7 +330,7 @@ void Koulu::paivitaKoulutusOhjelma()
 void Koulu::lataaTiedosto()
 {
 	string tmp_nimi = " ", nimi, etunimi, sukunimi, opiskelijanumero, osoite, tunnus, opetusala, puhelinnumero, tmp_palkka;
-	float palkka; // Apumuuttujien alustus tiedoston lataamista varten.
+	float palkka; 
 	std::string::size_type sz; // String -> Double muunnosta varten.
 	int indeksi = 0; // Laskureita ja apumuuttujia 
 	int laskuri = -1;
@@ -329,7 +340,7 @@ void Koulu::lataaTiedosto()
 
 	ifstream luku_tied_op; // luodaan tiedosto-olio lukua varten
 
-	luku_tied_op.open("Opiskelija.csv"); // Avataan "Opiskelija.csv"
+	luku_tied_op.open("Opiskelija.csv");
 	if (luku_tied_op.is_open())
 	{
 		while (luku_tied_op.peek() != EOF) // luetaan tiedosto loppuu, End Of File
@@ -338,8 +349,8 @@ void Koulu::lataaTiedosto()
 			if (nimi != tmp_nimi) // Tarkistetaan onko nimi uusi
 			{
 				tmp_nimi = nimi; // Tehdään uudesta nimestä vertailunimi
-				koulutusohjelmat_.push_back(nimi); // Laitetaan nimi vektoriin.
-				indeksi = 0; // Apumuuttuja
+				koulutusohjelmat_.push_back(nimi);
+				indeksi = 0;
 				laskuri++;
 			}
 			getline(luku_tied_op, etunimi, ';');
@@ -360,7 +371,7 @@ void Koulu::lataaTiedosto()
 		luku_tied_op.open("Opiskelija.csv");
 		if (luku_tied_op.is_open())
 		{
-			while (laskuri2 != 0) // Luetaan tiedostoa, edelliseltä kerralta jäi tieto rivien määrästä.
+			while (laskuri2 != 0) 
 			{
 				getline(luku_tied_op, nimi, ';'); // Haetaan nimi
 				apu = etsiKoulutusohjelmaLataus(nimi); // Katsotaan nimen sijainti vektorissa.
@@ -371,9 +382,9 @@ void Koulu::lataaTiedosto()
 				getline(luku_tied_op, puhelinnumero, ';');
 
 
-				if (apu >= 0) // Koulutusohjelma löytyi vektorista
+				if (apu >= 0) 
 				{
-					tmp_laskuri = apu; // Alustetaan koulutusohjelman sijainti vektorissa. Jotta saadaan koulutusohjelma oikeaan paikkaan.
+					tmp_laskuri = apu; 
 					koulutusohjelmat_.at(tmp_laskuri).lataaOpiskelija(indeksi, etunimi, sukunimi, osoite, opiskelijanumero, puhelinnumero);
 					laskuri2--; // Ensin lisätään opiskelijat vektoriin, sitten vähennetän laskuria, koska rivi käsitelty.
 				}
@@ -423,14 +434,13 @@ void Koulu::lataaTiedosto()
 			getline(luku_tied_op, tunnus, ';');
 			getline(luku_tied_op, tmp_palkka, ';'); // TÄSSÄ PALKKA ON STRING
 			getline(luku_tied_op, opetusala, ';');
-			getline(luku_tied_op, puhelinnumero, '\n'); // Käydään koko rivi lävitse. Ei lisätä vielä vektoriin.
-			laskuri2++; // Rivimäärän käsittely
+			getline(luku_tied_op, puhelinnumero, '\n'); 
+			laskuri2++; 
 
 		}
 
 		luku_tied_op.close();
 
-		// Opettajien koulutusohjelmat lisätty vektoriin. Apumuuttujien palaautus alkuarvoon.
 		laskuri = -1;
 		indeksi = 0;
 		tmp_nimi = " ";

@@ -59,6 +59,18 @@ void Opettaja::kysyTiedot()
 
 		cout << "	Anna opetusala: ";
 		getline(cin, opetusala_);
+		
+		try
+		{
+			for (int i = 0; i < 2; i++)
+				opetusala_.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Vahintaan 3 merkkia" << endl;
+			return kysyTiedot();
+		}
+
 
 		for (int i = 0; i < opetusala_.length(); i++)
 		{

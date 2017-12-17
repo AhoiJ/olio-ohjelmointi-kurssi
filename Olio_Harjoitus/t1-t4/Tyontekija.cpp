@@ -77,6 +77,17 @@ void Tyontekija::kysyTiedot()
 		cout << "	Anna tunnus: ";
 		getline(cin, tunnus_);
 
+		try
+		{
+			for (int i = 0; i < 4; i++)
+				tunnus_.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Tunnus vahintaan 5 merkkia" << endl;
+			return kysyTiedot();
+		}
+
 		for (int i = 0; i < tunnus_.length(); i++)
 		{
 			if (isdigit(tunnus_[i]))
@@ -102,6 +113,17 @@ void Tyontekija::kysyTiedot()
 
 		cout << "	Anna palkka: ";
 		getline(cin, palkka);
+
+		try
+		{
+			for (int i = 0; i < 2; i++)
+				palkka.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Vaadin sisaltoa!" << endl;
+			return kysyTiedot();
+		}
 
 
 		for (int i = 0; i < palkka.length(); i++)

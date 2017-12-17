@@ -64,6 +64,17 @@ void Opiskelija::kysyTiedot()
 		cout << "	Anna opiskelijanumero: ";
 		getline(cin, opiskelijanumero_);
 
+		try
+		{
+			for (int i = 0; i < 5; i++)
+				opiskelijanumero_.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Vahintaan 6 merkkia sisaltoa!" << endl;
+			return kysyTiedot();
+		}
+
 		for (int i = 0; i < opiskelijanumero_.length(); i++)
 		{
 			if (isdigit(opiskelijanumero_[i]))

@@ -132,6 +132,18 @@ void Henkilo::kysyTiedot()
 		cout << "	Anna sukunimi: ";
 		getline(cin, sukunimi_);
 
+		try
+		{
+			for (int i = 0; i < 1; i++)
+				sukunimi_.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Vaadin sisaltoa!" << endl;
+			return kysyTiedot();
+		}
+
+
 		for (int i = 0; i < sukunimi_.length(); i++)
 		{
 				if (isalpha(sukunimi_[i]))
@@ -157,10 +169,32 @@ void Henkilo::kysyTiedot()
 		cout << "	Anna osoite: ";
 		getline(cin, osoite_);
 
+		try
+		{
+			for (int i = 0; i < 1; i++)
+				osoite_.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Vaadin sisaltoa!" << endl;
+			return kysyTiedot();
+		}
+
 	do
 	{
 		cout << "	Anna puhelinnumero: ";
 		getline(cin, puhelinnumero_);
+
+		try
+		{
+			for (int i = 0; i < 4; i++)
+				puhelinnumero_.at(i);
+		}
+		catch (std::out_of_range &ex)
+		{
+			cout << " Puhelinnumero vahintaan 5 merkkia" << endl;
+			return kysyTiedot();
+		}
 
 		for (int i = 0; i < puhelinnumero_.length(); i++)
 		{
